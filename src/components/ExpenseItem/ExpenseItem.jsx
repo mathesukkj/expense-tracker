@@ -1,6 +1,6 @@
 import React from "react";
 import "./ExpenseItem.css";
-import ExpenseDate from "./ExpenseDate";
+import ExpenseDate from "../ExpenseDate/ExpenseDate";
 
 export default function ExpenseItem(props) {
     return (
