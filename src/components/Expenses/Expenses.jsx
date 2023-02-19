@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Card from "../Card/Card";
 import "./Expenses.css";
 import ExpensesList from "./ExpensesList/ExpensesList";
+import ExpensesChart from "../ExpensesChart/ExpensesChart";
 
 export default function Expenses(props) {
     const [filteredYear, setFilteredYear] = useState(2023);
@@ -21,6 +22,7 @@ export default function Expenses(props) {
                 year={filteredYear}
                 onChangeYear={handleChangeYear}
             />
+            <ExpensesChart array={filteredExpensesArray} />
             <ExpensesList array={filteredExpensesArray} />
         </Card>
     );
