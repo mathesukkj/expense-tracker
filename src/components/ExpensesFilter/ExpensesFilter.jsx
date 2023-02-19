@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./ExpensesFilter.css";
 
 export default function ExpensesFilter(props) {
     function handleSetYear(e) {
