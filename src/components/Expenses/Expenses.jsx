@@ -14,7 +14,7 @@ export default function Expenses(props) {
 
     return (
         <div>
-            <ExpensesFilter onChangeYear={handleChangeYear} />
+            <ExpensesFilter year={filterYear} onChangeYear={handleChangeYear} />
 
             <Card className="expenses">
                 <ExpenseItem
