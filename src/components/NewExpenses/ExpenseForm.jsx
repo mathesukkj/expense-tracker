@@ -3,8 +3,8 @@ import "./ExpenseForm.css";
 
 export default function ExpenseForm() {
     const [title, setTitle] = useState("oie");
-    const [price, setPrice] = useState("R$120");
-    const [date, setDate] = useState();
+    const [price, setPrice] = useState(120);
+    const [date, setDate] = useState("01/01/2023");
 
     function handleTitleChange(e) {
         setTitle(e.target.value);
@@ -26,7 +26,9 @@ export default function ExpenseForm() {
             // @ts-ignore
             date: new Date(date),
         };
-        console.log(expenseData);
+        setDate("");
+        setPrice(0);
+        setTitle("");
     }
 
     return (
@@ -34,11 +36,20 @@ export default function ExpenseForm() {
             <div className="controls">
                 <div className="control">
                     <label>Title</label>
-                    <input type="text" onChange={handleTitleChange} />
+                    <input
+                        type="text"
+                        value={title}
+                        onChange={handleTitleChange}
+                    />
                 </div>
                 <div className="control">
                     <label>Price</label>
-                    <input type="number" min="0" onChange={handlePriceChange} />
+                    <input
+                        type="number"
+                        value={price}
+                        min="0"
+                        onChange={handlePriceChange}
+                    />
                 </div>
                 <div className="control">
                     <label>Date</label>
@@ -46,7 +57,8 @@ export default function ExpenseForm() {
                         type="date"
                         min="2020-01-01"
                         max="2023-12-31"
-                        onClick={handleDateChange}
+                        onChange={handleDateChange}
+                        value={date}
                     />
                 </div>
             </div>
