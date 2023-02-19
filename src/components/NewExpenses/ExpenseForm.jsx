@@ -18,8 +18,19 @@ export default function ExpenseForm() {
         setDate(e.target.value);
     }
 
+    function handleSubmit(e) {
+        e.preventDefault();
+        const expenseData = {
+            title,
+            price,
+            // @ts-ignore
+            date: new Date(date),
+        };
+        console.log(expenseData);
+    }
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className="controls">
                 <div className="control">
                     <label>Title</label>
