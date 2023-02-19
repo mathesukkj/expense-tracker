@@ -11,6 +11,20 @@ export default function Expenses(props) {
         (item) => item.date.getFullYear() == filteredYear
     );
 
+    let expensesList;
+    if (filteredExpensesArray.length) {
+        expensesList = filteredExpensesArray.map((item) => (
+            <ExpenseItem
+                key={item.id}
+                title={item.title}
+                price={item.price}
+                date={item.date}
+            />
+        ));
+    } else {
+        expensesList = <p>No expenses found!</p>;
+    }
+
     function handleChangeYear(year) {
         setFilteredYear(year);
     }
@@ -21,14 +35,7 @@ export default function Expenses(props) {
                 year={filteredYear}
                 onChangeYear={handleChangeYear}
             />
-            {filteredExpensesArray.map((item) => (
-                <ExpenseItem
-                    key={item.id}
-                    title={item.title}
-                    price={item.price}
-                    date={item.date}
-                />
-            ))}
+            {expensesList}
         </Card>
     );
 }
