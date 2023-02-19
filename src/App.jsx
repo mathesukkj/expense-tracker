@@ -1,4 +1,5 @@
-import { useState } from "react";
+import ExpensesFilter from "./components/ExpensesFilter/ExpensesFilter";
+import React from "react";
 import "./App.css";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpenses/NewExpense";
@@ -31,9 +32,13 @@ function App() {
         },
     ];
 
+    function handleAddExpense(expenseData) {
+        console.log(expenseData);
+    }
+
     return (
         <div className="App">
-            <NewExpense />
+            <NewExpense onAddExpense={handleAddExpense} />
             <Expenses expenses={expenses} />
         </div>
     );
