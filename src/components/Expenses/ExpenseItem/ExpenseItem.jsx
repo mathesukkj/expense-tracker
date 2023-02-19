@@ -5,13 +5,15 @@ import "./ExpenseItem.css";
 
 export default function ExpenseItem(props) {
     return (
-        <Card className="expense-item">
-            <ExpenseDate date={props.date} />
+        <li>
+            <Card className="expense-item">
+                <ExpenseDate date={props.date} />
 
-            <div className="description">
-                <h2>{props.title}</h2>
-                <div className="price">R${props.price}</div>
-            </div>
-        </Card>
+                <div className="description">
+                    <h2>{props.title}</h2>
+                    <div className="price">R${props.price}</div>
+                </div>
+            </Card>
+        </li>
     );
 }
